@@ -1,14 +1,29 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
+import css from "./Navigation.module.css";
 
 export const Navigation = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home Page</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? css.nav_link_active : css.nav_link
+            }
+          >
+            Home Page
+          </NavLink>
         </li>
         <li>
-          <Link to="/products">Products Page</Link>
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive ? css.nav_link_active : css.nav_link
+            }
+          >
+            Products Page
+          </NavLink>
         </li>
       </ul>
     </nav>
