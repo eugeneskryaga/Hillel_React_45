@@ -10,12 +10,15 @@ interface ProductsResponse {
   products: Product[];
 }
 
-export const getProducts = async () => {
-  const { data } = await api<ProductsResponse>("/products", {
-    params: {
-      limit: 20,
+export const getProducts = async (order: string) => {
+  const { data } = await api<ProductsResponse>(
+    `products?sortBy=title&order=${order}`,
+    {
+      params: {
+        limit: 50,
+      },
     },
-  });
+  );
   return data.products;
 };
 

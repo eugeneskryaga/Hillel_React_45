@@ -3,6 +3,7 @@ import { Layout } from "../Layout/Layout";
 import { Home } from "../../pages/HomePage/HomePage";
 import { ProductsPage } from "../../pages/ProductsPage/ProductsPage";
 import { DetailsPage } from "../../pages/DetailsPage/DetailsPage";
+import { Reviews } from "../Reviews/Reviews";
 
 export const App = () => {
   return (
@@ -16,13 +17,18 @@ export const App = () => {
           element={<Home />}
         />
         <Route
-          path="/products"
+          path="products"
           element={<ProductsPage />}
         />
         <Route
-          path="products/:id"
+          path="products/:id/details"
           element={<DetailsPage />}
-        />
+        >
+          <Route
+            path="reviews"
+            element={<Reviews />}
+          />
+        </Route>
       </Route>
     </Routes>
   );
