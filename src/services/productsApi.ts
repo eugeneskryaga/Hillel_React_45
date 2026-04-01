@@ -15,7 +15,7 @@ export const getProducts = async (order: string) => {
     `products?sortBy=title&order=${order}`,
     {
       params: {
-        limit: 50,
+        limit: 30,
       },
     },
   );

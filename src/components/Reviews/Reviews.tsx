@@ -21,17 +21,19 @@ export const Reviews = () => {
   return (
     <>
       <h3>Reviews</h3>
-      {reviews?.map((review, index) => (
-        <div key={index}>
-          <p>
-            <strong>{review.reviewerName}</strong>
-          </p>
-          <p>Email: {review.reviewerEmail}</p>
-          <p>Date: {new Date(review.date).toLocaleDateString()}</p>
-          <p>Rating: {review.rating}</p>
-          <p>Review: {review.comment}</p>
-        </div>
-      ))}
+      <ul>
+        {reviews?.map(review => (
+          <li key={crypto.randomUUID()}>
+            <p>
+              <strong>{review.reviewerName}</strong>
+            </p>
+            <p>Email: {review.reviewerEmail}</p>
+            <p>Date: {new Date(review.date).toLocaleDateString()}</p>
+            <p>Rating: {review.rating}</p>
+            <p>Review: {review.comment}</p>
+          </li>
+        ))}
+      </ul>
       {isLoading && <p>Loading...</p>}
       {isError && <p>It`s an error.</p>}
     </>
