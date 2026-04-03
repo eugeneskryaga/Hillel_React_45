@@ -22,8 +22,8 @@ export const Reviews = () => {
     <>
       <h3>Reviews</h3>
       <ul>
-        {reviews?.map(review => (
-          <li key={crypto.randomUUID()}>
+        {reviews?.map((review, index) => (
+          <li key={index}>
             <p>
               <strong>{review.reviewerName}</strong>
             </p>

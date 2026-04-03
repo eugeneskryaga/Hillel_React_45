@@ -17,7 +17,7 @@ export const Navigation = () => {
         </li>
         <li>
           <NavLink
-            to="/products"
+            to="/products/?sort=asc"
             className={({ isActive }) =>
               isActive ? css.nav_link_active : css.nav_link
             }

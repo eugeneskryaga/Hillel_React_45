@@ -27,8 +27,18 @@ export const ProductsPage = () => {
       {products && products.length > 0 && (
         <>
           <select onChange={handleSortChange}>
-            <option value="asc">From A to Z</option>
-            <option value="desc">From Z to A</option>
+            <option
+              value="asc"
+              selected={sortOrder === "asc"}
+            >
+              From A to Z
+            </option>
+            <option
+              value="desc"
+              selected={sortOrder === "desc"}
+            >
+              From Z to A
+            </option>
           </select>
           <ProductList products={products} />
         </>
