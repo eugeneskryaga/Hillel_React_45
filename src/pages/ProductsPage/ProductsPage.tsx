@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../../services/productsApi";
 import { ProductList } from "../../components/ProductList/ProductsList";
 import { useSearchParams } from "react-router";
+import { useEffect } from "react";
 
 export const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,6 +17,12 @@ export const ProductsPage = () => {
     queryFn: () => getProducts(sortOrder),
     retry: 1,
   });
+
+  useEffect(() => {
+    if (!searchParams.get("sort")) {
+      setSearchParams({ sort: "asc" });
+    }
+  }, [searchParams]);
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchParams({ sort: event.target.value });

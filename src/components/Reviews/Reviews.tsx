@@ -21,10 +21,9 @@ export const Reviews = () => {
   return (
     <>
       <h3>Reviews</h3>
-      <ul>
-        {reviews &&
-          reviews.length > 0 &&
-          reviews.map((review, index) => (
+      {reviews && reviews.length > 0 && (
+        <ul>
+          {reviews.map((review, index) => (
             <li key={index}>
               <p>
                 <strong>{review.reviewerName}</strong>
@@ -35,7 +34,9 @@ export const Reviews = () => {
               <p>Review: {review.comment}</p>
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
+      {!reviews?.length && <p>This product has no reviews yet.</p>}
       {isLoading && <p>Loading...</p>}
       {isError && <p>It`s an error.</p>}
     </>
